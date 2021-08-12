@@ -79,7 +79,7 @@ function printQuote(){
   
 }
 
-
+//Code run and tested
 
 /***
  * click event listener for the print quote button
