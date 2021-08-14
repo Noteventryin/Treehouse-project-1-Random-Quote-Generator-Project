@@ -45,7 +45,7 @@ const quotes = [
  * This function will randomly create a random number from 0 to the max based on the length of the quotes Array.
  * The random number generated is used to return the quote at the same index  within the quotes Array.
 ***/
-getRandomQuote = () => {
+function getRandomQuote() {
   const RandomNum = Math.floor(Math.random() * quotes.length)
   return quotes[RandomNum]
 }
@@ -55,10 +55,12 @@ getRandomQuote = () => {
 /***
  * `printQuote` function
  * The returned quote object build a string of html and quote properties.
+ * Create a variable to store a random quote object from the getRandomQuote() function.
+ * Create another variable to store the HTML string. 
 ***/
 function printQuote(){
   const randomQuote = getRandomQuote()
-  let htmlstring = ` <p class="quote">${randomQuote.quote}</p>
+  let htmlstring = ` <p class="quote">${randomQuote.quote}</p> 
                      <p class="source">${randomQuote.source}`
    
   if (randomQuote.citation) {
