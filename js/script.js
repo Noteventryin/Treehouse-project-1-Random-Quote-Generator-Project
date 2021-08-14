@@ -17,6 +17,7 @@ const quotes = [
      source: '— Antoine de Saint-Exupéry', 
      citation: 'The Little Prince', 
      year: 1943, 
+     tags: 'Fantasy'
   },
   { quote: "There is some good in this world, and it’s worth fighting for.",
     source: '— J.R.R. Tolkien',
@@ -69,9 +70,22 @@ function printQuote(){
   if (randomQuote.year) {
     htmlstring += `<span class="year"> ${randomQuote.year} </span>`
   }
-  htmlstring += `</p>`
-  return document.getElementById('quote-box').innerHTML= htmlstring
+  if (randomQuote.tags) {
+    htmlstring += `<span class="tags">Tags: ${randomQuote.tags}</span>`}
+    htmlstring += `</p>`
+    return document.getElementById('quote-box').innerHTML= htmlstring
 }
+//Create a function that updates the background color to a random color.
+function randombc(){
+  return Math.floor(Math.random() * 255)
+}
+const red = randombc();
+const blue = randombc();
+const purple = randombc();
+
+document.body.style.backgroundColor = `rgb(${red}, ${purple}, ${blue})`;
+//Create a timing function with the setInterval() method to print a new quote to the page at regular intervals.
+setInterval(printQuote, 5000);
 //Code tested and quotes are printed to the screen each time click the 'Show another quote' button or refresh the browzer. 
 
 /***
