@@ -63,29 +63,31 @@ function printQuote(){
   const randomQuote = getRandomQuote()
   let htmlstring = ` <p class="quote">${randomQuote.quote}</p> 
                      <p class="source">${randomQuote.source}`
-   
+                     
   if (randomQuote.citation) {
     htmlstring += `<span class="citation">${randomQuote.citation}</span> `
   }
   if (randomQuote.year) {
     htmlstring += `<span class="year"> ${randomQuote.year} </span>`
   }
+  htmlstring += `</p>`
   if (randomQuote.tags) {
-    htmlstring += `<span class="tags">Tags: ${randomQuote.tags}</span>`}
-    htmlstring += `</p>`
-    return document.getElementById('quote-box').innerHTML= htmlstring
-}
-//Create a function that updates the background color to a random color.
-function randombc(){
-  return Math.floor(Math.random() * 255)
-}
-const red = randombc();
-const blue = randombc();
-const purple = randombc();
+    htmlstring += `<p class="tags">Tags: ${randomQuote.tags}</p>`}
+    const red = rgbPicker();
+    const green = rgbPicker();
+    const blue = rgbPicker();
 
-document.body.style.backgroundColor = `rgb(${red}, ${purple}, ${blue})`;
+    document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+    return document.getElementById('quote-box').innerHTML= htmlstring
+}    
+
+//Create a function that updates the background color to a random color.
+function rgbPicker() {
+  return Math.floor(Math.random() * 255);
+}
+
 //Create a timing function with the setInterval() method to print a new quote to the page at regular intervals.
-setInterval(printQuote, 5000);
+setInterval(printQuote, 10000);
 //Code tested and quotes are printed to the screen each time click the 'Show another quote' button or refresh the browzer. 
 
 /***
